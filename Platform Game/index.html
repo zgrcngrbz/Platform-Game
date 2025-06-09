@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelişmiş Platform Oyunu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Platform Oyunu</h1>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+        <div id="uiOverlay">
+            <!-- Sol Grup -->
+            <div>
+                <div id="scoreBoard">Skor: <span id="score">0</span></div>
+                <div id="targetScoreBoard">Hedef: <span id="targetScore">100</span></div>
+                <div id="livesBoard">Can: <span id="lives">3</span></div>
+            </div>
+            <!-- Sağ Grup -->
+            <div id="timerBoard">Süre: <span id="time">--:--</span></div>
+            <!-- Mesaj Panosu (Ortalanacak) -->
+            <div id="messageBoard"></div>
+            <!-- Duraklatma Overlay (JS ile oluşturulacak ama yeri burası) -->
+            <!-- <div id="pauseOverlay">DURAKLATILDI (P)</div> -->
+        </div>
+    </div>
+    <p>Kontroller: Sol/Sağ Ok (Hareket), Yukarı Ok/W (Zıplama/Çift Zıplama), Aşağı Ok/S (Eğilme), P (Duraklat). Puanı topla, süreden önce kapıya ulaş!</p>
+    <button id="restartButton" style="display: none;">Yeniden Başlat</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

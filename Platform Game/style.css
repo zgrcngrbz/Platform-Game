@@ -1,0 +1,138 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e0f2f7;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#gameContainer {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    margin-bottom: 15px;
+    border: 2px solid black;
+    overflow: hidden;
+    background-color: #87ceeb; /* Canvas'ın varsayılan arka planı */
+}
+
+canvas {
+    display: block;
+}
+
+#uiOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height: 100%; UI elemanlarının yüksekliği kadar olması daha iyi olabilir */
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between; /* Sol ve sağ grubu ayır */
+    align-items: flex-start;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#uiOverlay > div:first-child { /* Sol grup (Skor, Hedef, Can) */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#scoreBoard,
+#targetScoreBoard,
+#livesBoard {
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.6); /* Biraz daha belirgin */
+    color: white;
+    border-radius: 5px;
+    font-size: 1.1em;
+    min-width: 100px; /* Minimum genişlik */
+    text-align: left;
+}
+
+#targetScoreBoard {
+    color: lightblue;
+    font-size: 1.0em;
+}
+
+#livesBoard {
+    color: lightcoral;
+    font-weight: bold;
+}
+
+#timerBoard {
+    padding: 5px 10px;
+    background-color: rgba(100, 0, 0, 0.6);
+    color: white;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-family: 'Courier New', Courier, monospace;
+    min-width: 100px; /* Minimum genişlik */
+    text-align: center;
+}
+
+#messageBoard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 450px;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: yellow;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center;
+    display: none; /* Başlangıçta gizli */
+    z-index: 10;
+    pointer-events: auto; /* Mesaj varken arkası tıklanmasın */
+}
+
+/* Duraklatma overlay stili JS içinde ayarlanıyor ama yedek olarak burada */
+#pauseOverlay {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); color: white;
+    font-size: 3em; font-weight: bold; display: none;
+    justify-content: center; align-items: center;
+    text-shadow: 2px 2px 4px black; z-index: 20;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #333;
+    max-width: 800px;
+    text-align: center;
+}
+
+#restartButton {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: background-color 0.2s ease;
+}
+
+#restartButton:hover {
+    background-color: #45a049;
+}
